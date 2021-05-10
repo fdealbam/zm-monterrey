@@ -1,22 +1,22 @@
-#NUEVO LEON 
+# Monterrey
 
 import os
 import pandas as pd
 
 #Abre bd
-entidades_s= pd.read_csv("https://raw.githubusercontent.com/fdealbam/censo2020/main/entidades2020.csv")#, encoding= "Latin-1")
-entidades_p= pd.read_csv("https://raw.githubusercontent.com/fdealbam/censo2020/main/entidades2020percent.csv")#, encoding="Latin-1")
+entidades_s= pd.read_csv("https://raw.githubusercontent.com/fdealbam/censo2020/main/zm42020.csv")#, encoding= "Latin-1")
+entidades_p= pd.read_csv("https://raw.githubusercontent.com/fdealbam/censo2020/main/zm42020percent.csv")#, encoding="Latin-1")
 
 #pormunicipio_fa.replace(to_replace ="*",
 #                 value =0, inplace=True)
 
 
 # Falta un identificador de la base 1) entidad 2)mpios
-df = entidades_s[entidades_s.ENTIDAD == 19]
-df_p = entidades_p[entidades_p.ENTIDAD == 19]
+df = entidades_s[entidades_s.NOM_ZM == "Monterrey"]
+df_p = entidades_p[entidades_p.NOM_ZM == "Monterrey"]
 
 
-noment = df.iloc[0]["NOM_ENT"]
+noment = df.iloc[0]["NOM_ZM"]
 
 #-------------------------------------Pob Total
 ptotal_s                                             = df.POBTOT.sum()      # población total  
@@ -100,7 +100,7 @@ poblacionenhogaresconjefaturamasculina_s             = df.PHOGJEF_M.sum()    # H
 poblaciontotalenhogares_s                            = df.POBHOG.sum()       # Población en hogares censales
 #agregados:jef masc y total de hogares
 
-promediodeocupantesporvivienda                      =  df.PROM_OCUP.sum()    #Promedio de ocupantes en viviendas particulares habitadas
+promediodeocupantesporvivienda                      =  df["PROM_OCUP.1"].sum()    #Promedio de ocupantes en viviendas particulares habitadas
 
 
 
@@ -1747,26 +1747,29 @@ body = html.Div([
  
     dbc.Row(
            [   #mapa de la entidad 
-               dbc.Col(dbc.Button(dbc.CardImg(src="https://github.com/fdealbam/censo2020/blob/b94700a88ff29ebb35f6bc6e578e5c30a0266f40/1nleona.png?raw=true"),
-                         #href="https://censo2020-mexico.herokuapp.com/",
+               
+            dbc.Col(dbc.Button(dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/cd70e780b421392cf892dc250a7523c792c9d678/application/static/1zmmonterrey.png?raw=true"),
+                         
                                style={"background-color": "transparent"}),
-                      md={"size": 3,},
+                      md={"size": 7,},
                       style= {
                          
                           "margin-top": "-32px", 
                              "display": "block", "position": "relative",
                               "inline": "block",
                               "column-break-inside": "avoid",
-                              "margin-left": "400px",
+                              "margin-left": "350px",
+                              "margin-top": "-50px",
                               "margin-bottom": "-230px"
                              }),
-               
-               
+
                       ], justify= "start"), 
+               
+               
                dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/CamaraDiputados/blob/main/application/static/logocamara.jfif?raw=true",
                         ),width ={ "size": 1,  "offset": 1,
                                   "height": "5px"}),
-               dbc.Col(html.H4("Reporte estadístico básico de ",
+               dbc.Col(html.H4("Reporte estadístico de la zona metropolitana",
                         style={'offset' : 0, "size": 5,
                                
                               "margin-left": "140px",
