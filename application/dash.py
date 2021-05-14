@@ -1,7 +1,6 @@
 # Monterrey
 
-# ZM Valle de México 
-# Valle de México 
+# Monterrey
 
 import os
 import pandas as pd
@@ -15,8 +14,8 @@ entidades_p= pd.read_csv("https://raw.githubusercontent.com/fdealbam/censo2020/m
 
 
 # Falta un identificador de la base 1) entidad 2)mpios
-df = entidades_s[entidades_s.NOM_ZM == "Valle de México"]
-df_p = entidades_p[entidades_p.NOM_ZM == "Valle de México"]
+df = entidades_s[entidades_s.NOM_ZM == "Monterrey"]
+df_p = entidades_p[entidades_p.NOM_ZM == "Monterrey"]
 
 
 noment = df.iloc[0]["NOM_ZM"]
